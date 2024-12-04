@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Asteroids</h1>
+<form th:action="@{/asteroids/form}" method="get">
+    <button type="submit">Add asteroid</button>
+</form>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Is hazardous</th>
+        <th>Close approach date</th>
+        <th>Estimated diameter</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="asteroid : ${asteroids}">
+        <td th:text="${asteroid.getName()}"></td>
+        <td th:text="${asteroid.getIsPotentiallyHazardous()}"></td>
+        <td th:text="${asteroid.diameterKmAverage}"></td>
+        <td>
+            <form th:action="@{/asteroids/form/{id}(id=${asteroid.id})}" method="get">
+                <button type="submit">Edit</button>
+            </form>
+            <form th:action="@{/asteroids/delete/{id}(id=${asteroid.id})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

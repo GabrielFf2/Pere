@@ -1,0 +1,13 @@
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/CreateServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/CreateUserServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/DeleteServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/FirstMovieServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/HelloServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/LoginServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/MovieByIDServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/MoviesServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/controller/UpdateServlet.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/dao/MovieDao.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/dao/MovieDaoJDBCImpl.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/interceptor/moviesInterceptor.java
+/home/gabri/Daw2/DWES/Pere/T02/hellowweb/src/main/java/org/example/hellowweb/model/Movie.java

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Create a New Movie</h1>
+
+    <!-- Formulario para crear una nueva película -->
+    <form th:action="${movieForm.id != 0} ? @{/movie/edit} : @{/movie}" th:object="${movieForm}" method="post">
+
+        <input type="text" class="form-control" id="id" name="id" th:field="*{id}" hidden>
+
+        <div class="mb-3" th:classappend="${#fields.hasErrors('title')}? 'text-danger'">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" th:field="*{title}" placeholder="Enter the movie title">
+        </div>
+
+        <div class="mb-3">
+            <label for="synopsis" class="form-label">Synopsis</label>
+            <textarea class="form-control" id="synopsis" name="synopsis" th:field="*{synopsis}" placeholder="Enter a brief synopsis" rows="3" required></textarea>
+            <div class="invalid-feedback">Synopsis is required.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="number" class="form-control" id="year" name="year" th:field="*{year}" placeholder="Enter the release year" required>
+            <div class="invalid-feedback">Year is required and must be a number.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+</div>
+
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

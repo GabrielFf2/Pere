@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Asteroid</h1>
+    <form th:action="${asteroid.id != 0} ? @{/asteroids/form/{id}(id=${asteroid.id})} : @{/asteroids/form} " th:object="${asteroid}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}"/>
+        <br>
+        <label for="isPotentiallyHazardous">Is potentially hazardous:</label>
+        <input type="text" id="isPotentiallyHazardous" th:field="*{isPotentiallyHazardous}"/>
+        <br>
+        <label for="absoluteMagnitude">Magnitud :</label>
+        <input type="text" id="absoluteMagnitude" th:field="*{absoluteMagnitude}"/>
+        <br>
+        <label for="diameterKmAverage">Estimated diameter (km) min:</label>
+        <input type="text" id="diameterKmAverage" th:field="*{diameterKmAverage}"/>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
