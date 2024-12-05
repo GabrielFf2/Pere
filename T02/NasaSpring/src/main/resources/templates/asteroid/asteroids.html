@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Asteroids</title>
 </head>
 <body>
-<h1>Asteroids</h1>
-<form th:action="@{/asteroids/form}" method="get">
-    <button type="submit">Add asteroid</button>
-</form>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Is hazardous</th>
-        <th>Close approach date</th>
-        <th>Estimated diameter</th>
-        <th>Actions</th>
-    </tr>
-    <tr th:each="asteroid : ${asteroids}">
-        <td th:text="${asteroid.getName()}"></td>
-        <td th:text="${asteroid.getIsPotentiallyHazardous()}"></td>
-        <td th:text="${asteroid.diameterKmAverage}"></td>
-        <td>
-            <form th:action="@{/asteroids/form/{id}(id=${asteroid.id})}" method="get">
-                <button type="submit">Edit</button>
-            </form>
-            <form th:action="@{/asteroids/delete/{id}(id=${asteroid.id})}" method="post">
-                <button type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
-</table>
+<div class="container">
+    <h1 class="my-4">Asteroids</h1>
+    <form th:action="@{/asteroids/form}" method="get">
+        <button type="submit" class="btn btn-primary mb-3">Add asteroid</button>
+    </form>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Is hazardous</th>
+            <th>Estimated diameter</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="asteroid : ${asteroids}">
+            <td th:text="${asteroid.getName()}"></td>
+            <td th:text="${asteroid.getIsPotentiallyHazardous()}"></td>
+            <td th:text="${asteroid.diameterKmAverage}"></td>
+            <td>
+                <form th:action="@{/asteroids/form/{id}(id=${asteroid.id})}" method="get" class="d-inline">
+                    <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+                </form>
+                <form th:action="@{/asteroids/delete/{id}(id=${asteroid.id})}" method="post" class="d-inline">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

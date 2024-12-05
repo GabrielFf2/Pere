@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AsteroidController {
 
     @Autowired
-    @Qualifier("nasaMockImpl")
+    @Qualifier("NasaJpaImpl")
     private INasa nasaService;
 
     @GetMapping("/asteroids")
@@ -43,7 +43,7 @@ public class AsteroidController {
 
     @GetMapping("/asteroids/form/{id}")
     public String asteroidForm(Model model, @PathVariable String id) {
-        model.addAttribute("asteroid", nasaService.asteroidById(Long.parseLong(id)));
+        model.addAttribute("asteroid", nasaService.findAsteroidById(Long.parseLong(id)));
         return "asteroid/form";
     }
 

@@ -2,25 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Asteroid Form</title>
 </head>
 <body>
     <h1>Asteroid</h1>
-    <form th:action="${asteroid.id != 0} ? @{/asteroids/form/{id}(id=${asteroid.id})} : @{/asteroids/form} " th:object="${asteroid}" method="post">
+    <form th:action="${asteroid.id != 0} ? @{/asteroids/form/{id}(id=${asteroid.id})} : @{/asteroids/form}" th:object="${asteroid}" method="post" class="form-group">
         <input type="hidden" th:field="*{id}"/>
-        <label for="name">Name:</label>
-        <input type="text" id="name" th:field="*{name}"/>
-        <br>
-        <label for="isPotentiallyHazardous">Is potentially hazardous:</label>
-        <input type="text" id="isPotentiallyHazardous" th:field="*{isPotentiallyHazardous}"/>
-        <br>
-        <label for="absoluteMagnitude">Magnitud :</label>
-        <input type="text" id="absoluteMagnitude" th:field="*{absoluteMagnitude}"/>
-        <br>
-        <label for="diameterKmAverage">Estimated diameter (km) min:</label>
-        <input type="text" id="diameterKmAverage" th:field="*{diameterKmAverage}"/>
-        <br>
-        <button type="submit">Save</button>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="isPotentiallyHazardous">Is potentially hazardous:</label>
+            <input type="text" id="isPotentiallyHazardous" th:field="*{isPotentiallyHazardous}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="absoluteMagnitude">Magnitude:</label>
+            <input type="text" id="absoluteMagnitude" th:field="*{absoluteMagnitude}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="diameterKmAverage">Estimated diameter (km):</label>
+            <input type="text" id="diameterKmAverage" th:field="*{diameterKmAverage}" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

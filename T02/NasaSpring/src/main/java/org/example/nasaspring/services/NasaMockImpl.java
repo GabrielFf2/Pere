@@ -18,7 +18,7 @@ public class NasaMockImpl implements INasa {
     }
 
     @Override
-    public Asteroid asteroidById(Long id) {
+    public Asteroid findAsteroidById(Long id) {
         return asteroids.stream().filter(asteroid -> asteroid.getId() == id).findFirst().orElse(null);
     }
 
@@ -36,7 +36,7 @@ public class NasaMockImpl implements INasa {
 
     @Override
     public Asteroid updateAsteroid(Asteroid asteroid) {
-        Asteroid found = asteroidById(asteroid.getId());
+        Asteroid found = findAsteroidById(asteroid.getId());
         found.setName(asteroid.getName());
         found.setAbsoluteMagnitude(asteroid.getAbsoluteMagnitude());
         found.setDiameterKmAverage(asteroid.getDiameterKmAverage());

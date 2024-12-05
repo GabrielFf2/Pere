@@ -7,7 +7,7 @@ import java.util.List;
 public interface INasa {
 
     List<Asteroid> asteroids();
-    Asteroid asteroidById(Long id);
+    Asteroid findAsteroidById(Long id);
     Asteroid saveAsteroid(Asteroid asteroid);
     boolean deleteAsteroid(Long id);
     Asteroid updateAsteroid(Asteroid asteroid);
