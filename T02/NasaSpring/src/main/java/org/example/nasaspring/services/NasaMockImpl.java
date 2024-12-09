@@ -24,25 +24,25 @@ public class NasaMockImpl implements INasa {
 
     @Override
     public Asteroid saveAsteroid(Asteroid asteroid) {
-        asteroid.setId((long) (asteroids.size() + 1));
-        asteroids.add(asteroid);
-        return asteroid;
+        if (asteroids.contains(asteroid)) {
+            Asteroid found = findAsteroidById(asteroid.getId());
+            found.setName(asteroid.getName());
+            found.setAbsoluteMagnitude(asteroid.getAbsoluteMagnitude());
+            found.setDiameterKmAverage(asteroid.getDiameterKmAverage());
+            found.setIsPotentiallyHazardous(asteroid.getIsPotentiallyHazardous());
+            return found;
+        }else {
+            asteroid.setId((long) (asteroids.size() + 1));
+            asteroids.add(asteroid);
+            return asteroid;
+        }
     }
 
     @Override
-    public boolean deleteAsteroid(Long id) {
-        return asteroids.removeIf(asteroid -> asteroid.getId() == id);
+    public void deleteAsteroid(Long id) {
+        asteroids.removeIf(asteroid -> asteroid.getId() == id);
     }
 
-    @Override
-    public Asteroid updateAsteroid(Asteroid asteroid) {
-        Asteroid found = findAsteroidById(asteroid.getId());
-        found.setName(asteroid.getName());
-        found.setAbsoluteMagnitude(asteroid.getAbsoluteMagnitude());
-        found.setDiameterKmAverage(asteroid.getDiameterKmAverage());
-        found.setIsPotentiallyHazardous(asteroid.getIsPotentiallyHazardous());
-        return found;
-    }
 
     @PostConstruct
     public void init() {

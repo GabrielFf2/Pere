@@ -3,13 +3,11 @@ package org.example.nasaspring.services;
 import org.example.nasaspring.entities.Asteroid;
 import org.example.nasaspring.repository.IAsteroidRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Qualifier("NasaJpaImpl")
 public class NasaJpaImpl implements INasa {
     
     @Autowired
@@ -27,14 +25,10 @@ public class NasaJpaImpl implements INasa {
     }
 
     public Asteroid saveAsteroid(Asteroid asteroid) {
-        return asteroidRepo.saveAsteroid(asteroid);
+        return asteroidRepo.save(asteroid);
     }
 
-    public boolean deleteAsteroid(Long id) {
-        return asteroidRepo.deleteAsteroid(id);
-    }
-
-    public Asteroid updateAsteroid(Asteroid asteroid) {
-        return asteroidRepo.updateAsteroid(asteroid);
+    public void deleteAsteroid(Long id) {
+        asteroidRepo.deleteById(id);
     }
 }

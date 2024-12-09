@@ -17,12 +17,14 @@
         <tr>
             <th>Name</th>
             <th>Is hazardous</th>
+            <th>Magnitude</th>
             <th>Estimated diameter</th>
             <th>Actions</th>
         </tr>
         <tr th:each="asteroid : ${asteroids}">
             <td th:text="${asteroid.getName()}"></td>
             <td th:text="${asteroid.getIsPotentiallyHazardous()}"></td>
+            <td th:text="${asteroid.getAbsoluteMagnitude()}"></td>
             <td th:text="${asteroid.diameterKmAverage}"></td>
             <td>
                 <form th:action="@{/asteroids/form/{id}(id=${asteroid.id})}" method="get" class="d-inline">

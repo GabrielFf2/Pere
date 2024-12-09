@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AsteroidController {
 
     @Autowired
-    @Qualifier("NasaJpaImpl")
+    @Qualifier("nasaJpaImpl")
     private INasa nasaService;
 
     @GetMapping("/asteroids")
@@ -49,7 +49,7 @@ public class AsteroidController {
 
     @PostMapping("/asteroids/form/{id}")
     public String asteroidForm1(@ModelAttribute Asteroid asteroid) {
-        nasaService.updateAsteroid(asteroid);
+        nasaService.saveAsteroid(asteroid);
         return "redirect:/asteroids";
     }
 

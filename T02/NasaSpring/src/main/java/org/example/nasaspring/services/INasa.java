@@ -9,6 +9,5 @@ public interface INasa {
     List<Asteroid> asteroids();
     Asteroid findAsteroidById(Long id);
     Asteroid saveAsteroid(Asteroid asteroid);
-    boolean deleteAsteroid(Long id);
-    Asteroid updateAsteroid(Asteroid asteroid);
+    void deleteAsteroid(Long id);
 }

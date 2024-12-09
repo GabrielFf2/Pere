@@ -8,7 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IAsteroidRepo extends JpaRepository<Asteroid, Long> {
     Asteroid findAsteroidById(Long id);
-    Asteroid saveAsteroid(Asteroid asteroid);
-    Boolean deleteAsteroid(Long id);
-    Asteroid updateAsteroid(Asteroid asteroid);
+    void deleteById(Long id);
 }

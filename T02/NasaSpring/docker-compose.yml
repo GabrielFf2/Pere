@@ -1,27 +1,19 @@
 services:
   db:
     image: mysql:8.0
-    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: nasa
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-
-  phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: phpmyadmin
+  myadmin:
+    image: phpmyadmin/phpmyadmin
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "8081:80"
-    depends_on:
-      - db
-
 volumes:
   db_data:

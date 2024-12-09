@@ -1,3 +1,4 @@
+/*
 package com.project.nasaweb.Interceptor;
 
 import jakarta.servlet.*;
@@ -33,3 +34,4 @@ public class AstronomerInterceptor implements Filter {
         Filter.super.destroy();
     }
 }
+*/
